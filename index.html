@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Style Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Study Style Test</h1>
+    <form id="quiz-form">
+        <div class="question">
+            <p>1. 수학: 당신은 어떤 방식으로 공부합니까?</p>
+            <label><input type="radio" name="math" value="A"> 문제집</label>
+            <label><input type="radio" name="math" value="B"> 인강</label>
+            <label><input type="radio" name="math" value="C"> 잔머리</label>
+            <label><input type="radio" name="math" value="D"> 공부 x</label>
+        </div>
+        <div class="question">
+            <p>2. 국어: 당신은 어떤 방식으로 공부합니까?</p>
+            <label><input type="radio" name="korean" value="A"> 인강</label>
+            <label><input type="radio" name="korean" value="B"> 독학</label>
+            <label><input type="radio" name="korean" value="C"> 글쓰기</label>
+            <label><input type="radio" name="korean" value="D"> 공부 x</label>
+        </div>
+        <div class="question">
+            <p>3. 과학: 당신은 어떤 방식으로 공부합니까?</p>
+            <label><input type="radio" name="science" value="A"> 문제집</label>
+            <label><input type="radio" name="science" value="B"> 인강</label>
+            <label><input type="radio" name="science" value="C"> 실험</label>
+            <label><input type="radio" name="science" value="D"> 공부 x</label>
+        </div>
+        <div class="question">
+            <p>4. 사회: 당신은 어떤 방식으로 공부합니까?</p>
+            <label><input type="radio" name="society" value="A"> 문제집</label>
+            <label><input type="radio" name="society" value="B"> 책</label>
+            <label><input type="radio" name="society" value="C"> 인강</label>
+            <label><input type="radio" name="society" value="D"> 공부 x</label>
+        </div>
+        <div class="question">
+            <p>5. 영어: 당신은 어떤 방식으로 공부합니까?</p>
+            <label><input type="radio" name="english" value="A"> 문제집</label>
+            <label><input type="radio" name="english" value="B"> 인강</label>
+            <label><input type="radio" name="english" value="C"> 글쓰기</label>
+            <label><input type="radio" name="english" value="D"> 공부 x</label>
+        </div>
+        <div class="question">
+            <p>6. 실과: 당신은 어떤 방식으로 공부합니까?</p>
+            <label><input type="radio" name="practical" value="A"> 실습</label>
+            <label><input type="radio" name="practical" value="B"> 책</label>
+            <label><input type="radio" name="practical" value="C"> 영상</label>
+            <label><input type="radio" name="practical" value="D"> 공부 x</label>
+        </div>
+        <button type="submit">제출</button>
+    </form>
+    <div id="result"></div>
+    <script src="script.js"></script>
+</body>
+</html>
