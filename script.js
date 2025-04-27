@@ -7,24 +7,37 @@ document.addEventListener("DOMContentLoaded", function () {
     event.preventDefault();
 
     let score = 0;
-
-    // 과목별 질문에 대한 답변 체크
-    const subjects = ["math", "korean", "science", "social", "english", "practical", "art", "PE", "computer", "music", "ethics"];
+    const subjects = ["korean", "math", "english", "social", "science", "music", "PE", "art", "ethics", "practical"];
     
+    const userAnswers = {
+      korean: '',
+      math: '',
+      english: '',
+      social: '',
+      science: '',
+      music: '',
+      PE: '',
+      art: '',
+      ethics: '',
+      practical: ''
+    };
+
+    // 과목별 질문 체크
     subjects.forEach(subject => {
       const selectedOption = document.querySelector(`input[name="${subject}"]:checked`);
       if (selectedOption) {
-        score += parseInt(selectedOption.value);
+        userAnswers[subject] = selectedOption.value;
+        score += ['a', 'b', 'c', 'd'].indexOf(selectedOption.value) + 1; // 점수 계산
       }
     });
 
     let userType = "";
-    if (score >= 30) {
-      userType = "A형"; // 예시 유형
-    } else if (score >= 20) {
-      userType = "B형";
+    if (score >= 90) {
+      userType = "CIMD"; // 예시 유형
+    } else if (score >= 60) {
+      userType = "BEXD";
     } else {
-      userType = "C형";
+      userType = "AEXC";
     }
 
     resultDiv.textContent = `당신의 공부 스타일은: ${userType}`;
@@ -34,13 +47,14 @@ document.addEventListener("DOMContentLoaded", function () {
     let bonusType = "";
     
     if (environment === "chill") {
-      bonusType = "C (Chill) - 다른 공부 과목이나 환경에 잘 적응";
+      bonusType = "C (Chill) - 다른 공부 환경에 잘 적응";
     } else if (environment === "explorer") {
-      bonusType = "E (Explorer) - 호기심이 많고 새로운 것에 도전";
+      bonusType = "E (Explorer) - 호기심 많고 새로운 것에 도전";
     } else if (environment === "bored") {
-      bonusType = "B (Bored) - 가끔은 지루함을 느끼지만, 일에 집중";
+      bonusType = "B (Bored) - 지루하지만 일에 집중";
     }
 
     bonusResultDiv.textContent = `보너스 특성: ${bonusType}`;
   });
 });
+
