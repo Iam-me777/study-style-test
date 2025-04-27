@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>공부 스타일 퀴즈</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -10,75 +10,260 @@
   <div class="container">
     <h1>공부 스타일 퀴즈</h1>
     <form id="quiz-form">
-      <!-- 국어 질문 -->
+
+      <!-- 1. 국어 -->
       <fieldset>
         <legend>국어를 어떻게 공부하나요?</legend>
-        <label><input type="radio" name="korean" value="a"> A. 문제집 풀기</label><br>
-        <label><input type="radio" name="korean" value="b"> B. 인강 듣기</label><br>
-        <label><input type="radio" name="korean" value="c"> C. 암기만 하기</label><br>
-        <label><input type="radio" name="korean" value="d"> D. 공부 안 함</label><br>
+        <label><input type="radio" name="korean" value="a"> A. 문제집 풀기</label>
+        <label><input type="radio" name="korean" value="b"> B. 인강 듣기</label>
+        <label><input type="radio" name="korean" value="c"> C. 암기만 하기</label>
+        <label><input type="radio" name="korean" value="d"> D. 공부 안 함</label>
       </fieldset>
-
       <fieldset>
         <legend>국어 시험칠 때는 어떻게 하나요?</legend>
-        <label><input type="radio" name="korean-exam" value="a"> A. 문제풀이</label><br>
-        <label><input type="radio" name="korean-exam" value="b"> B. 기출문제 풀기</label><br>
-        <label><input type="radio" name="korean-exam" value="c"> C. 복습만 하기</label><br>
-        <label><input type="radio" name="korean-exam" value="d"> D. 시험 전날 벼락치기</label><br>
+        <label><input type="radio" name="korean-exam" value="a"> A. 문제풀이</label>
+        <label><input type="radio" name="korean-exam" value="b"> B. 기출문제 풀기</label>
+        <label><input type="radio" name="korean-exam" value="c"> C. 복습만 하기</label>
+        <label><input type="radio" name="korean-exam" value="d"> D. 시험 전날 벼락치기</label>
       </fieldset>
-
       <fieldset>
         <legend>국어 수업을 받을 때 어떤 기분인가요?</legend>
-        <label><input type="radio" name="korean-feel" value="a"> A. 항상 집중하는 편</label><br>
-        <label><input type="radio" name="korean-feel" value="b"> B. 가끔 졸음</label><br>
-        <label><input type="radio" name="korean-feel" value="c"> C. 재미있다</label><br>
-        <label><input type="radio" name="korean-feel" value="d"> D. 지루하다</label><br>
+        <label><input type="radio" name="korean-feel" value="a"> A. 항상 집중하는 편</label>
+        <label><input type="radio" name="korean-feel" value="b"> B. 가끔 졸음</label>
+        <label><input type="radio" name="korean-feel" value="c"> C. 재미있다</label>
+        <label><input type="radio" name="korean-feel" value="d"> D. 지루하다</label>
       </fieldset>
 
-      <!-- 수학 질문 -->
+      <!-- 2. 수학 -->
       <fieldset>
         <legend>수학을 어떻게 공부하나요?</legend>
-        <label><input type="radio" name="math" value="a"> A. 문제집 풀기</label><br>
-        <label><input type="radio" name="math" value="b"> B. 인강 듣기</label><br>
-        <label><input type="radio" name="math" value="c"> C. 개념 이해 후 풀기</label><br>
-        <label><input type="radio" name="math" value="d"> D. 공부 안 함</label><br>
+        <label><input type="radio" name="math" value="a"> A. 문제집 풀기</label>
+        <label><input type="radio" name="math" value="b"> B. 인강 듣기</label>
+        <label><input type="radio" name="math" value="c"> C. 개념 이해 후 풀기</label>
+        <label><input type="radio" name="math" value="d"> D. 공부 안 함</label>
       </fieldset>
-
       <fieldset>
         <legend>수학 시험칠 때는 어떻게 하나요?</legend>
-        <label><input type="radio" name="math-exam" value="a"> A. 문제풀이</label><br>
-        <label><input type="radio" name="math-exam" value="b"> B. 기출문제 풀기</label><br>
-        <label><input type="radio" name="math-exam" value="c"> C. 마지막 날 벼락치기</label><br>
-        <label><input type="radio" name="math-exam" value="d"> D. 시험 전날 풀기</label><br>
+        <label><input type="radio" name="math-exam" value="a"> A. 문제풀이</label>
+        <label><input type="radio" name="math-exam" value="b"> B. 기출문제 풀기</label>
+        <label><input type="radio" name="math-exam" value="c"> C. 마지막 날 벼락치기</label>
+        <label><input type="radio" name="math-exam" value="d"> D. 시험 전날 풀기</label>
       </fieldset>
-
       <fieldset>
         <legend>수학 수업을 받을 때 어떤 기분인가요?</legend>
-        <label><input type="radio" name="math-feel" value="a"> A. 집중 잘함</label><br>
-        <label><input type="radio" name="math-feel" value="b"> B. 가끔 지루함</label><br>
-        <label><input type="radio" name="math-feel" value="c"> C. 즐겁다</label><br>
-        <label><input type="radio" name="math-feel" value="d"> D. 관심 없음</label><br>
+        <label><input type="radio" name="math-feel" value="a"> A. 집중 잘함</label>
+        <label><input type="radio" name="math-feel" value="b"> B. 가끔 지루함</label>
+        <label><input type="radio" name="math-feel" value="c"> C. 즐겁다</label>
+        <label><input type="radio" name="math-feel" value="d"> D. 관심 없음</label>
       </fieldset>
 
-      <!-- 나머지 과목들도 비슷하게 3개씩 질문 추가 -->
-      
-      <!-- 보너스 특성 질문 -->
+      <!-- 3. 영어 -->
       <fieldset>
-        <legend>보너스 특성 질문</legend>
-        <label><input type="radio" name="environment" value="chill"> A. Chill - 다른 공부 환경에 잘 적응</label><br>
-        <label><input type="radio" name="environment" value="explorer"> B. Explorer - 호기심 많고 새로운 것에 도전</label><br>
-        <label><input type="radio" name="environment" value="bored"> C. Bored - 지루하지만 일에 집중</label><br>
+        <legend>영어를 어떻게 공부하나요?</legend>
+        <label><input type="radio" name="english" value="a"> A. 문제집 풀기</label>
+        <label><input type="radio" name="english" value="b"> B. 인강 듣기</label>
+        <label><input type="radio" name="english" value="c"> C. 단어 암기</label>
+        <label><input type="radio" name="english" value="d"> D. 공부 안 함</label>
+      </fieldset>
+      <fieldset>
+        <legend>영어 시험칠 때는 어떻게 하나요?</legend>
+        <label><input type="radio" name="english-exam" value="a"> A. 문제풀이</label>
+        <label><input type="radio" name="english-exam" value="b"> B. 기출문제 풀기</label>
+        <label><input type="radio" name="english-exam" value="c"> C. 단어 복습</label>
+        <label><input type="radio" name="english-exam" value="d"> D. 시험 전날 벼락치기</label>
+      </fieldset>
+      <fieldset>
+        <legend>영어 수업을 받을 때 어떤 기분인가요?</legend>
+        <label><input type="radio" name="english-feel" value="a"> A. 집중 잘함</label>
+        <label><input type="radio" name="english-feel" value="b"> B. 가끔 지루함</label>
+        <label><input type="radio" name="english-feel" value="c"> C. 즐겁다</label>
+        <label><input type="radio" name="english-feel" value="d"> D. 관심 없음</label>
+      </fieldset>
+
+      <!-- 4. 사회 -->
+      <fieldset>
+        <legend>사회를 어떻게 공부하나요?</legend>
+        <label><input type="radio" name="social" value="a"> A. 문제집 풀기</label>
+        <label><input type="radio" name="social" value="b"> B. 인강 듣기</label>
+        <label><input type="radio" name="social" value="c"> C. 암기</label>
+        <label><input type="radio" name="social" value="d"> D. 공부 안 함</label>
+      </fieldset>
+      <fieldset>
+        <legend>사회 시험칠 때는 어떻게 하나요?</legend>
+        <label><input type="radio" name="social-exam" value="a"> A. 문제풀이</label>
+        <label><input type="radio" name="social-exam" value="b"> B. 기출문제 풀기</label>
+        <label><input type="radio" name="social-exam" value="c"> C. 복습</label>
+        <label><input type="radio" name="social-exam" value="d"> D. 시험 전날 벼락치기</label>
+      </fieldset>
+      <fieldset>
+        <legend>사회 수업을 받을 때 어떤 기분인가요?</legend>
+        <label><input type="radio" name="social-feel" value="a"> A. 집중 잘함</label>
+        <label><input type="radio" name="social-feel" value="b"> B. 가끔 졸음</label>
+        <label><input type="radio" name="social-feel" value="c"> C. 재미있다</label>
+        <label><input type="radio" name="social-feel" value="d"> D. 지루하다</label>
+      </fieldset>
+
+      <!-- 5. 과학 -->
+      <fieldset>
+        <legend>과학을 어떻게 공부하나요?</legend>
+        <label><input type="radio" name="science" value="a"> A. 문제집 풀기</label>
+        <label><input type="radio" name="science" value="b"> B. 인강 듣기</label>
+        <label><input type="radio" name="science" value="c"> C. 실험 관찰</label>
+        <label><input type="radio" name="science" value="d"> D. 공부 안 함</label>
+      </fieldset>
+      <fieldset>
+        <legend>과학 시험칠 때는 어떻게 하나요?</legend>
+        <label><input type="radio" name="science-exam" value="a"> A. 문제풀이</label>
+        <label><input type="radio" name="science-exam" value="b"> B. 기출문제 풀기</label>
+        <label><input type="radio" name="science-exam" value="c"> C. 복습만 하기</label>
+        <label><input type="radio" name="science-exam" value="d"> D. 시험 전날 벼락치기</label>
+      </fieldset>
+      <fieldset>
+        <legend>과학 수업을 받을 때 어떤 기분인가요?</legend>
+        <label><input type="radio" name="science-feel" value="a"> A. 집중 잘함</label>
+        <label><input type="radio" name="science-feel" value="b"> B. 가끔 졸음</label>
+        <label><input type="radio" name="science-feel" value="c"> C. 재미있다</label>
+        <label><input type="radio" name="science-feel" value="d"> D. 지루하다</label>
+      </fieldset>
+
+      <!-- 6. 음악 -->
+      <fieldset>
+        <legend>음악을 어떻게 공부하나요?</legend>
+        <label><input type="radio" name="music" value="a"> A. 악보로 작곡하기</label>
+        <label><input type="radio" name="music" value="b"> B. 인강 듣기</label>
+        <label><input type="radio" name="music" value="c"> C. 연습만 하기</label>
+        <label><input type="radio" name="music" value="d"> D. 공부 안 함</label>
+      </fieldset>
+      <fieldset>
+        <legend>음악 시험칠 때는 어떻게 하나요?</legend>
+        <label><input type="radio" name="music-exam" value="a"> A. 실기 연습</label>
+        <label><input type="radio" name="music-exam" value="b"> B. 이론 암기</label>
+        <label><input type="radio" name="music-exam" value="c"> C. 듣기만 하기</label>
+        <label><input type="radio" name="music-exam" value="d"> D. 벼락치기</label>
+      </fieldset>
+      <fieldset>
+        <legend>음악 수업을 받을 때 어떤 기분인가요?</legend>
+        <label><input type="radio" name="music-feel" value="a"> A. 몰입 잘함</label>
+        <label><input type="radio" name="music-feel" value="b"> B. 가끔 지루함</label>
+        <label><input type="radio" name="music-feel" value="c"> C. 재미있다</label>
+        <label><input type="radio" name="music-feel" value="d"> D. 관심 없음</label>
+      </fieldset>
+
+      <!-- 7. 미술 -->
+      <fieldset>
+        <legend>미술을 어떻게 공부하나요?</legend>
+        <label><input type="radio" name="art" value="a"> A. 학원 다니기</label>
+        <label><input type="radio" name="art" value="b"> B. 독학</label>
+        <label><input type="radio" name="art" value="c"> C. 연습만 하기</label>
+        <label><input type="radio" name="art" value="d"> D. 공부 안 함</label>
+      </fieldset>
+      <fieldset>
+        <legend>미술 시험칠 때는 어떻게 하나요?</legend>
+        <label><input type="radio" name="art-exam" value="a"> A. 실기 연습</label>
+        <label><input type="radio" name="art-exam" value="b"> B. 포트폴리오 준비</label>
+        <label><input type="radio" name="art-exam" value="c"> C. 이론만 보기</label>
+        <label><input type="radio" name="art-exam" value="d"> D. 벼락치기</label>
+      </fieldset>
+      <fieldset>
+        <legend>미술 수업을 받을 때 어떤 기분인가요?</legend>
+        <label><input type="radio" name="art-feel" value="a"> A. 몰입 잘함</label>
+        <label><input type="radio" name="art-feel" value="b"> B. 가끔 지루함</label>
+        <label><input type="radio" name="art-feel" value="c"> C. 재미있다</label>
+        <label><input type="radio" name="art-feel" value="d"> D. 관심 없음</label>
+      </fieldset>
+
+      <!-- 8. 도덕 -->
+      <fieldset>
+        <legend>도덕을 어떻게 공부하나요?</legend>
+        <label><input type="radio" name="ethics" value="a"> A. 이론 암기</label>
+        <label><input type="radio" name="ethics" value="b"> B. 토론 참여</label>
+        <label><input type="radio" name="ethics" value="c"> C. 사례 분석</label>
+        <label><input type="radio" name="ethics" value="d"> D. 공부 안 함</label>
+      </fieldset>
+      <fieldset>
+        <legend>도덕 시험칠 때는 어떻게 하나요?</legend>
+        <label><input type="radio" name="ethics-exam" value="a"> A. 문제풀이</label>
+        <label><input type="radio" name="ethics-exam" value="b"> B. 사례 암기</label>
+        <label><input type="radio" name="ethics-exam" value="c"> C. 요약만 하기</label>
+        <label><input type="radio" name="ethics-exam" value="d"> D. 벼락치기</label>
+      </fieldset>
+      <fieldset>
+        <legend>도덕 수업을 받을 때 어떤 기분인가요?</legend>
+        <label><input type="radio" name="ethics-feel" value="a"> A. 집중 잘함</label>
+        <label><input type="radio" name="ethics-feel" value="b"> B. 가끔 지루함</label>
+        <label><input type="radio" name="ethics-feel" value="c"> C. 흥미롭다</label>
+        <label><input type="radio" name="ethics-feel" value="d"> D. 관심 없음</label>
+      </fieldset>
+
+      <!-- 9. 체육 -->
+      <fieldset>
+        <legend>체육을 어떻게 공부하나요?</legend>
+        <label><input type="radio" name="physical" value="a"> A. 직접 해보기</label>
+        <label><input type="radio" name="physical" value="b"> B. 영상 시청</label>
+        <label><input type="radio" name="physical" value="c"> C. 설명 듣기</label>
+        <label><input type="radio" name="physical" value="d"> D. 공부 안 함</label>
+      </fieldset>
+      <fieldset>
+        <legend>체육 시험칠 때는 어떻게 하나요?</legend>
+        <label><input type="radio" name="physical-exam" value="a"> A. 실기 연습</label>
+        <label><input type="radio" name="physical-exam" value="b"> B. 규칙 암기</label>
+        <label><input type="radio" name="physical-exam" value="c"> C. 시범만 보기</label>
+        <label><input type="radio" name="physical-exam" value="d"> D. 벼락치기</label>
+      </fieldset>
+      <fieldset>
+        <legend>체육 수업을 받을 때 어떤 기분인가요?</legend>
+        <label><input type="radio" name="physical-feel" value="a"> A. 신나함</label>
+        <label><input type="radio" name="physical-feel" value="b"> B. 가끔 지루함</label>
+        <label><input type="radio" name="physical-feel" value="c"> C. 즐겁다</label>
+        <label><input type="radio" name="physical-feel" value="d"> D. 관심 없음</label>
+      </fieldset>
+
+      <!-- 10. 실과 -->
+      <fieldset>
+        <legend>실과를 어떻게 공부하나요?</legend>
+        <label><input type="radio" name="practical" value="a"> A. 실습 위주</label>
+        <label><input type="radio" name="practical" value="b"> B. 이론 암기</label>
+        <label><input type="radio" name="practical" value="c"> C. 영상 시청</label>
+        <label><input type="radio" name="practical" value="d"> D. 공부 안 함</label>
+      </fieldset>
+      <fieldset>
+        <legend>실과 시험칠 때는 어떻게 하나요?</legend>
+        <label><input type="radio" name="practical-exam" value="a"> A. 실기 연습</label>
+        <label><input type="radio" name="practical-exam" value="b"> B. 요약 암기</label>
+        <label><input type="radio" name="practical-exam" value="c"> C. 사례 분석</label>
+        <label><input type="radio" name="practical-exam" value="d"> D. 벼락치기</label>
+      </fieldset>
+      <fieldset>
+        <legend>실과 수업을 받을 때 어떤 기분인가요?</legend>
+        <label><input type="radio" name="practical-feel" value="a"> A. 몰입 잘함</label>
+        <label><input type="radio" name="practical-feel" value="b"> B. 가끔 지루함</label>
+        <label><input type="radio" name="practical-feel" value="c"> C. 재미있다</label>
+        <label><input type="radio" name="practical-feel" value="d"> D. 관심 없음</label>
+      </fieldset>
+
+      <!-- 보너스 환경 질문 2개 -->
+      <fieldset>
+        <legend>새로운 공부 환경에서도 금방 적응하나요?</legend>
+        <label><input type="radio" name="environment1" value="c"> A. 전혀 문제 없다</label>
+        <label><input type="radio" name="environment1" value="e"> B. 호기심이 생긴다</label>
+        <label><input type="radio" name="environment1" value="b"> C. 지루함을 느낄 수 있다</label>
+      </fieldset>
+      <fieldset>
+        <legend>공부 공간이 바뀌면 집중하기 어려운 편인가요?</legend>
+        <label><input type="radio" name="environment2" value="c"> A. 전혀 문제 없다</label>
+        <label><input type="radio" name="environment2" value="e"> B. 새로운 것 탐색</label>
+        <label><input type="radio" name="environment2" value="b"> C. 쉽게 지루해진다</label>
       </fieldset>
 
       <button type="submit">결과 보기</button>
     </form>
 
     <div id="result"></div>
-    <div id="bonus-result"></div>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
