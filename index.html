@@ -1,59 +1,84 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study Style Test</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공부 스타일 퀴즈</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Study Style Test</h1>
+  <div class="container">
+    <h1>공부 스타일 퀴즈</h1>
     <form id="quiz-form">
-        <div class="question">
-            <p>1. 수학: 당신은 어떤 방식으로 공부합니까?</p>
-            <label><input type="radio" name="math" value="A"> 문제집</label>
-            <label><input type="radio" name="math" value="B"> 인강</label>
-            <label><input type="radio" name="math" value="C"> 잔머리</label>
-            <label><input type="radio" name="math" value="D"> 공부 x</label>
-        </div>
-        <div class="question">
-            <p>2. 국어: 당신은 어떤 방식으로 공부합니까?</p>
-            <label><input type="radio" name="korean" value="A"> 인강</label>
-            <label><input type="radio" name="korean" value="B"> 독학</label>
-            <label><input type="radio" name="korean" value="C"> 글쓰기</label>
-            <label><input type="radio" name="korean" value="D"> 공부 x</label>
-        </div>
-        <div class="question">
-            <p>3. 과학: 당신은 어떤 방식으로 공부합니까?</p>
-            <label><input type="radio" name="science" value="A"> 문제집</label>
-            <label><input type="radio" name="science" value="B"> 인강</label>
-            <label><input type="radio" name="science" value="C"> 실험</label>
-            <label><input type="radio" name="science" value="D"> 공부 x</label>
-        </div>
-        <div class="question">
-            <p>4. 사회: 당신은 어떤 방식으로 공부합니까?</p>
-            <label><input type="radio" name="society" value="A"> 문제집</label>
-            <label><input type="radio" name="society" value="B"> 책</label>
-            <label><input type="radio" name="society" value="C"> 인강</label>
-            <label><input type="radio" name="society" value="D"> 공부 x</label>
-        </div>
-        <div class="question">
-            <p>5. 영어: 당신은 어떤 방식으로 공부합니까?</p>
-            <label><input type="radio" name="english" value="A"> 문제집</label>
-            <label><input type="radio" name="english" value="B"> 인강</label>
-            <label><input type="radio" name="english" value="C"> 글쓰기</label>
-            <label><input type="radio" name="english" value="D"> 공부 x</label>
-        </div>
-        <div class="question">
-            <p>6. 실과: 당신은 어떤 방식으로 공부합니까?</p>
-            <label><input type="radio" name="practical" value="A"> 실습</label>
-            <label><input type="radio" name="practical" value="B"> 책</label>
-            <label><input type="radio" name="practical" value="C"> 영상</label>
-            <label><input type="radio" name="practical" value="D"> 공부 x</label>
-        </div>
-        <button type="submit">제출</button>
+      <!-- 국어 질문 -->
+      <fieldset>
+        <legend>국어를 어떻게 공부하나요?</legend>
+        <label><input type="radio" name="korean" value="a"> A. 문제집 풀기</label><br>
+        <label><input type="radio" name="korean" value="b"> B. 인강 듣기</label><br>
+        <label><input type="radio" name="korean" value="c"> C. 암기만 하기</label><br>
+        <label><input type="radio" name="korean" value="d"> D. 공부 안 함</label><br>
+      </fieldset>
+
+      <fieldset>
+        <legend>국어 시험칠 때는 어떻게 하나요?</legend>
+        <label><input type="radio" name="korean-exam" value="a"> A. 문제풀이</label><br>
+        <label><input type="radio" name="korean-exam" value="b"> B. 기출문제 풀기</label><br>
+        <label><input type="radio" name="korean-exam" value="c"> C. 복습만 하기</label><br>
+        <label><input type="radio" name="korean-exam" value="d"> D. 시험 전날 벼락치기</label><br>
+      </fieldset>
+
+      <fieldset>
+        <legend>국어 수업을 받을 때 어떤 기분인가요?</legend>
+        <label><input type="radio" name="korean-feel" value="a"> A. 항상 집중하는 편</label><br>
+        <label><input type="radio" name="korean-feel" value="b"> B. 가끔 졸음</label><br>
+        <label><input type="radio" name="korean-feel" value="c"> C. 재미있다</label><br>
+        <label><input type="radio" name="korean-feel" value="d"> D. 지루하다</label><br>
+      </fieldset>
+
+      <!-- 수학 질문 -->
+      <fieldset>
+        <legend>수학을 어떻게 공부하나요?</legend>
+        <label><input type="radio" name="math" value="a"> A. 문제집 풀기</label><br>
+        <label><input type="radio" name="math" value="b"> B. 인강 듣기</label><br>
+        <label><input type="radio" name="math" value="c"> C. 개념 이해 후 풀기</label><br>
+        <label><input type="radio" name="math" value="d"> D. 공부 안 함</label><br>
+      </fieldset>
+
+      <fieldset>
+        <legend>수학 시험칠 때는 어떻게 하나요?</legend>
+        <label><input type="radio" name="math-exam" value="a"> A. 문제풀이</label><br>
+        <label><input type="radio" name="math-exam" value="b"> B. 기출문제 풀기</label><br>
+        <label><input type="radio" name="math-exam" value="c"> C. 마지막 날 벼락치기</label><br>
+        <label><input type="radio" name="math-exam" value="d"> D. 시험 전날 풀기</label><br>
+      </fieldset>
+
+      <fieldset>
+        <legend>수학 수업을 받을 때 어떤 기분인가요?</legend>
+        <label><input type="radio" name="math-feel" value="a"> A. 집중 잘함</label><br>
+        <label><input type="radio" name="math-feel" value="b"> B. 가끔 지루함</label><br>
+        <label><input type="radio" name="math-feel" value="c"> C. 즐겁다</label><br>
+        <label><input type="radio" name="math-feel" value="d"> D. 관심 없음</label><br>
+      </fieldset>
+
+      <!-- 나머지 과목들도 비슷하게 3개씩 질문 추가 -->
+      
+      <!-- 보너스 특성 질문 -->
+      <fieldset>
+        <legend>보너스 특성 질문</legend>
+        <label><input type="radio" name="environment" value="chill"> A. Chill - 다른 공부 환경에 잘 적응</label><br>
+        <label><input type="radio" name="environment" value="explorer"> B. Explorer - 호기심 많고 새로운 것에 도전</label><br>
+        <label><input type="radio" name="environment" value="bored"> C. Bored - 지루하지만 일에 집중</label><br>
+      </fieldset>
+
+      <button type="submit">결과 보기</button>
     </form>
+
     <div id="result"></div>
-    <script src="script.js"></script>
+    <div id="bonus-result"></div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
+
+
