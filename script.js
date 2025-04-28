@@ -47,3 +47,4 @@ document.getElementById('quiz-form').addEventListener('submit', function(e) {
     <p>${bonusDescMap[bonusKey]}</p>
   `;
 });
+
