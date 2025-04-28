@@ -3,7 +3,7 @@ document.getElementById('quiz-form').addEventListener('submit', function(e) {
   const form = e.target;
   const answered = [...form.querySelectorAll('input[type="radio"]:checked')];
   const totalSubjectQs = 10 * 3; // 30문항
-  const envQs = ['environment1','environment2'];
+  const envQs = ['environment1', 'environment2'];
 
   // 답 체크
   const numSubjectAnswered = answered.filter(r => !envQs.includes(r.name)).length;
