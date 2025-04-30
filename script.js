@@ -1,59 +1,77 @@
-window.onload = () => {
-  const container = document.getElementById("subjects");
-  subjects.forEach(subj => {
-    container.appendChild(createQuestionBlock(subj));
-  });
+document.getElementById("quizForm").addEventListener("submit", function (event) {
+  event.preventDefault();
 
-  document.getElementById("quiz-form").addEventListener("submit", e => {
-    e.preventDefault();
+  const formData = new FormData(this);
+  const answerCounts = {
+    a: 0, b: 0, c: 0, d: 0,
+    e: 0, f: 0, g: 0, h: 0,
+    i: 0, j: 0, k: 0, l: 0
+  };
 
-    const form = new FormData(e.target);
-    const counts = {
-      a: 0, b: 0, c: 0, d: 0, // 공부 유형
-      e: 0, f: 0, g: 0, h: 0, // 시험 유형
-      i: 0, j: 0, k: 0, l: 0  // 수업 태도
-    };
+  const bonusCounts = {
+    c: 0, e: 0, b: 0
+  };
 
-    // 값 집계
-    for (let [key, value] of form.entries()) {
-      if (value in counts) counts[value]++;
+  for (let [key, value] of formData.entries()) {
+    if (value in answerCounts) {
+      answerCounts[value]++;
+    } else if (["-c", "-e", "-b"].includes(value)) {
+      bonusCounts[value[1]]++;
     }
+  }
 
-    // 보너스 질문
-    const b1 = parseInt(form.get("bonus1"));
-    const b2 = parseInt(form.get("bonus2"));
-    const b3 = parseInt(form.get("bonus3"));
+  // 각 파트에서 가장 많이 선택된 항목 고르기
+  function getMaxLetter(range) {
+    let maxLetter = null;
+    let maxCount = -1;
+    for (let letter of range) {
+      if (answerCounts[letter] > maxCount) {
+        maxCount = answerCounts[letter];
+        maxLetter = letter;
+      }
+    }
+    return maxLetter;
+  }
 
-    let bonusCode = "";
-    if (b1 <= 2) bonusCode += "-c";
-    if (b2 <= 2) bonusCode += "-e";
-    if (b3 <= 2) bonusCode += "-b";
+  const studyType = getMaxLetter(["a", "b", "c", "d"]);
+  const testType = getMaxLetter(["e", "f", "g", "h"]);
+  const moodType = getMaxLetter(["i", "j", "k", "l"]);
 
-    // 각 그룹별 최댓값 찾기
-    const getMax = (group) =>
-      group.reduce((a, b) => (counts[a] >= counts[b] ? a : b));
+  let bonusType = "-c"; // default
+  let maxBonus = -1;
+  for (let key in bonusCounts) {
+    if (bonusCounts[key] > maxBonus) {
+      maxBonus = bonusCounts[key];
+      bonusType = `-${key}`;
+    }
+  }
 
-    const study = getMax(['a', 'b', 'c', 'd']);
-    const test = getMax(['e', 'f', 'g', 'h']);
-    const feel = getMax(['i', 'j', 'k', 'l']);
+  const finalType = `${studyType}${testType}${moodType}${bonusType}`;
 
-    const finalCode = `${study}${test}${feel}${bonusCode}`;
+  const typeDescriptions = {
+    a: "행동파 실천형",
+    b: "영상탐색형",
+    c: "암기중심형",
+    d: "자유방임형",
+    e: "계획적 연습형",
+    f: "기출분석형",
+    g: "복습중심형",
+    h: "벼락치기형",
+    i: "집중참여형",
+    j: "산만지루형",
+    k: "흥미참여형",
+    l: "무관심형"
+  };
 
-    const summary = `${resultMap[study]}, ${resultMap[test]}, ${resultMap[feel]}`;
-    const bonusSummary = bonusCode
-      ? bonusCode
-          .slice(1)
-          .split('-')
-          .map(code => bonusMap[code])
-          .join(', ')
-      : "없음";
+  const bonusDescriptions = {
+    "-c": "Chill: 새로운 환경에도 잘 적응하는 편이에요.",
+    "-e": "Explorer: 다양한 공부 환경을 탐색하고 싶어해요.",
+    "-b": "Bored: 현재 공부 환경이 지루하다고 느낄 수 있어요."
+  };
 
-    const resultHTML = `
-      🎯 <strong>당신의 공부유형은 ${study}${test}${feel}${bonusCode} 입니다.</strong><br><br>
-      <u>당신은 ${summary}입니다.</u><br><br>
-      보너스 성향: ${bonusSummary}
-    `;
+  const resultText = `당신의 공부유형은 🎯 ${finalType}형입니다!`;
+  const detailText = `당신은 ${typeDescriptions[studyType]}, ${typeDescriptions[testType]}, ${typeDescriptions[moodType]} 유형이에요.\n\n${bonusDescriptions[bonusType]}`;
 
-    document.getElementById("result").innerHTML = resultHTML;
-  });
-};
+  document.getElementById("result").textContent = resultText;
+  document.getElementById("description").textContent = detailText;
+});
