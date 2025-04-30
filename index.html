@@ -3,14 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>공부 스타일 테스트</title>
+  <title>공부유형 테스트</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>공부 스타일 테스트</h1>
-  <form id="quizForm"></form>
-  <button onclick="submitQuiz()">제출</button>
-  <div id="result"></div>
+  <h1>📚 공부유형 테스트</h1>
+  <form id="quiz-form">
+    
+    <!-- 과목별 질문 -->
+    <div id="subjects">
+      <!-- JavaScript가 여기다 질문 자동 삽입 -->
+    </div>
+
+    <!-- 보너스 질문 -->
+    <fieldset>
+      <legend>✨ 보너스 질문</legend>
+      <div class="question">
+        <label>1. 새로운 공부환경에 잘 적응합니까?</label><br />
+        <select name="bonus1">
+          <option value="1">매우 그렇다</option>
+          <option value="2">그렇다</option>
+          <option value="3">보통이다</option>
+          <option value="4">아니다</option>
+          <option value="5">전혀 아니다</option>
+        </select>
+      </div>
+      <div class="question">
+        <label>2. 새로운 공부환경을 찾고 싶습니까?</label><br />
+        <select name="bonus2">
+          <option value="1">매우 그렇다</option>
+          <option value="2">그렇다</option>
+          <option value="3">보통이다</option>
+          <option value="4">아니다</option>
+          <option value="5">전혀 아니다</option>
+        </select>
+      </div>
+      <div class="question">
+        <label>3. 공부환경이 지루합니까?</label><br />
+        <select name="bonus3">
+          <option value="1">매우 그렇다</option>
+          <option value="2">그렇다</option>
+          <option value="3">보통이다</option>
+          <option value="4">아니다</option>
+          <option value="5">전혀 아니다</option>
+        </select>
+      </div>
+    </fieldset>
+
+    <button type="submit">제출</button>
+  </form>
+
+  <div id="result" class="result-box"></div>
+
   <script src="script.js"></script>
 </body>
 </html>
