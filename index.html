@@ -7,53 +7,50 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>📚 공부유형 테스트</h1>
-  <form id="quiz-form">
-    
-    <!-- 과목별 질문 -->
-    <div id="subjects">
-      <!-- JavaScript가 여기다 질문 자동 삽입 -->
-    </div>
+  <div class="container">
+    <h1>📚 나의 공부유형은?</h1>
+    <form id="quiz-form">
+      <div id="subjects"></div>
 
-    <!-- 보너스 질문 -->
-    <fieldset>
-      <legend>✨ 보너스 질문</legend>
-      <div class="question">
-        <label>1. 새로운 공부환경에 잘 적응합니까?</label><br />
-        <select name="bonus1">
-          <option value="1">매우 그렇다</option>
-          <option value="2">그렇다</option>
-          <option value="3">보통이다</option>
-          <option value="4">아니다</option>
-          <option value="5">전혀 아니다</option>
-        </select>
-      </div>
-      <div class="question">
-        <label>2. 새로운 공부환경을 찾고 싶습니까?</label><br />
-        <select name="bonus2">
-          <option value="1">매우 그렇다</option>
-          <option value="2">그렇다</option>
-          <option value="3">보통이다</option>
-          <option value="4">아니다</option>
-          <option value="5">전혀 아니다</option>
-        </select>
-      </div>
-      <div class="question">
-        <label>3. 공부환경이 지루합니까?</label><br />
-        <select name="bonus3">
-          <option value="1">매우 그렇다</option>
-          <option value="2">그렇다</option>
-          <option value="3">보통이다</option>
-          <option value="4">아니다</option>
-          <option value="5">전혀 아니다</option>
-        </select>
-      </div>
-    </fieldset>
+      <fieldset class="bonus">
+        <legend>보너스 질문 (공부환경)</legend>
+        <label>1. 새로운 공부환경에 잘 적응합니까?<br>
+          <select name="bonus1" required>
+            <option value="">-- 선택 --</option>
+            <option value="1">매우 그렇다</option>
+            <option value="2">그렇다</option>
+            <option value="3">보통이다</option>
+            <option value="4">아니다</option>
+            <option value="5">전혀 아니다</option>
+          </select>
+        </label><br><br>
+        <label>2. 새로운 공부환경을 찾고 싶습니까?<br>
+          <select name="bonus2" required>
+            <option value="">-- 선택 --</option>
+            <option value="1">매우 그렇다</option>
+            <option value="2">그렇다</option>
+            <option value="3">보통이다</option>
+            <option value="4">아니다</option>
+            <option value="5">전혀 아니다</option>
+          </select>
+        </label><br><br>
+        <label>3. 공부환경이 지루합니까?<br>
+          <select name="bonus3" required>
+            <option value="">-- 선택 --</option>
+            <option value="1">매우 그렇다</option>
+            <option value="2">그렇다</option>
+            <option value="3">보통이다</option>
+            <option value="4">아니다</option>
+            <option value="5">전혀 아니다</option>
+          </select>
+        </label>
+      </fieldset>
 
-    <button type="submit">제출</button>
-  </form>
+      <button type="submit">결과 보기</button>
+    </form>
 
-  <div id="result" class="result-box"></div>
+    <div id="result" class="result-box"></div>
+  </div>
 
   <script src="script.js"></script>
 </body>
