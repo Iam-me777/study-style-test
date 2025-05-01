@@ -1,57 +1,129 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>공부유형 테스트</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>공부 유형 테스트</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>📚 나의 공부유형은?</h1>
-    <form id="quiz-form">
-      <div id="subjects"></div>
+  <h1>공부 유형 테스트</h1>
+  <form id="quizForm">
+    <div class="section">
+      <h2>공부 과목 질문</h2>
+      <div id="questions"></div>
+    </div>
 
-      <fieldset class="bonus">
-        <legend>보너스 질문 (공부환경)</legend>
-        <label>1. 새로운 공부환경에 잘 적응합니까?<br>
-          <select name="bonus1" required>
-            <option value="">-- 선택 --</option>
-            <option value="1">매우 그렇다</option>
-            <option value="2">그렇다</option>
-            <option value="3">보통이다</option>
-            <option value="4">아니다</option>
-            <option value="5">전혀 아니다</option>
-          </select>
-        </label><br><br>
-        <label>2. 새로운 공부환경을 찾고 싶습니까?<br>
-          <select name="bonus2" required>
-            <option value="">-- 선택 --</option>
-            <option value="1">매우 그렇다</option>
-            <option value="2">그렇다</option>
-            <option value="3">보통이다</option>
-            <option value="4">아니다</option>
-            <option value="5">전혀 아니다</option>
-          </select>
-        </label><br><br>
-        <label>3. 공부환경이 지루합니까?<br>
-          <select name="bonus3" required>
-            <option value="">-- 선택 --</option>
-            <option value="1">매우 그렇다</option>
-            <option value="2">그렇다</option>
-            <option value="3">보통이다</option>
-            <option value="4">아니다</option>
-            <option value="5">전혀 아니다</option>
-          </select>
-        </label>
-      </fieldset>
+    <div class="section">
+      <h2>보너스 질문</h2>
+      <div class="bonus">
+        <label>1. 새로운 공부환경에 잘 적응합니까?</label><br>
+        <input type="radio" name="bonus1" value="-c"> 매우 그렇다
+        <input type="radio" name="bonus1" value="-c"> 그렇다
+        <input type="radio" name="bonus1" value="-c"> 보통이다
+        <input type="radio" name="bonus1" value="-e"> 아니다
+        <input type="radio" name="bonus1" value="-b"> 전혀 아니다
+        <br><br>
 
-      <button type="submit">결과 보기</button>
-    </form>
+        <label>2. 새로운 공부환경을 찾고싶습니까?</label><br>
+        <input type="radio" name="bonus2" value="-e"> 매우 그렇다
+        <input type="radio" name="bonus2" value="-e"> 그렇다
+        <input type="radio" name="bonus2" value="-e"> 보통이다
+        <input type="radio" name="bonus2" value="-c"> 아니다
+        <input type="radio" name="bonus2" value="-b"> 전혀 아니다
+        <br><br>
 
-    <div id="result" class="result-box"></div>
-  </div>
+        <label>3. 공부환경이 지루합니까?</label><br>
+        <input type="radio" name="bonus3" value="-b"> 매우 그렇다
+        <input type="radio" name="bonus3" value="-b"> 그렇다
+        <input type="radio" name="bonus3" value="-b"> 보통이다
+        <input type="radio" name="bonus3" value="-c"> 아니다
+        <input type="radio" name="bonus3" value="-c"> 전혀 아니다
+      </div>
+    </div>
+
+    <button type="submit">결과 보기</button>
+  </form>
+
+  <div id="result" class="result"></div>
+  <div id="description" class="description"></div>
 
   <script src="script.js"></script>
+  <script>
+    const subjects = [
+      "국어", "수학", "영어", "과학", "사회", "도덕", "음악", "미술", "체육", "실과"
+    ];
+
+    const questionTypes = [
+      { type: '공부', code: ['a','b','c','d'], prefix: 'a' },
+      { type: '시험', code: ['e','f','g','h'], prefix: 'e' },
+      { type: '수업 기분', code: ['i','j','k','l'], prefix: 'i' }
+    ];
+
+    const answers = [
+      "a", "b", "c", "d",
+      "e", "f", "g", "h",
+      "i", "j", "k", "l"
+    ];
+
+    const choiceTexts = {
+      a: "계획 세워서 직접 실천한다",
+      b: "유튜브, 영상으로 배운다",
+      c: "암기 위주로 정리하며 공부한다",
+      d: "그때그때 하고 싶은 걸 한다",
+      e: "계획 세워서 미리 연습한다",
+      f: "기출문제 분석한다",
+      g: "틀린 문제를 복습한다",
+      h: "시험 전에 벼락치기한다",
+      i: "집중해서 열심히 듣는다",
+      j: "집중이 잘 안되고 산만하다",
+      k: "재미있고 흥미롭게 듣는다",
+      l: "수업에 관심이 없다"
+    };
+
+    const specialChoiceTexts = {
+      a: "몸으로 직접 해보며 배운다",  // 체육
+      b: "영상을 따라하며 익힌다",
+      c: "용어와 과정을 외운다",
+      d: "자유롭게 활동하며 배운다"
+    };
+
+    const questionDiv = document.getElementById("questions");
+
+    subjects.forEach((subject, sIdx) => {
+      const box = document.createElement("div");
+      box.className = "question-box";
+      box.innerHTML = `<h3>${subject}</h3>`;
+
+      questionTypes.forEach((qt, qIdx) => {
+        const qNum = String.fromCharCode(qt.prefix.charCodeAt(0) + sIdx);
+        const label = document.createElement("label");
+        label.textContent = `${qIdx + 1}. ${subject}을(를) ${qt.type}할 때는 어떤가요?`;
+        box.appendChild(label);
+        box.appendChild(document.createElement("br"));
+
+        qt.code.forEach(code => {
+          const input = document.createElement("input");
+          input.type = "radio";
+          input.name = `${qNum}`;
+          input.value = code;
+
+          const span = document.createElement("span");
+          if ((subject === "체육" || subject === "음악" || subject === "미술") && qt.prefix === "a") {
+            span.textContent = specialChoiceTexts[code] || choiceTexts[code];
+          } else {
+            span.textContent = choiceTexts[code];
+          }
+
+          box.appendChild(input);
+          box.appendChild(document.createTextNode(" " + span.textContent));
+          box.appendChild(document.createElement("br"));
+        });
+
+        box.appendChild(document.createElement("br"));
+      });
+
+      questionDiv.appendChild(box);
+    });
+  </script>
 </body>
 </html>
