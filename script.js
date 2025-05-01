@@ -1,77 +1,66 @@
-document.getElementById("quizForm").addEventListener("submit", function (event) {
-  event.preventDefault();
+const typeNames = {
+  a: "행동파 실천형",
+  b: "영상탐색형",
+  c: "암기중심형",
+  d: "자유방임형",
+  e: "계획적 연습형",
+  f: "기출분석형",
+  g: "복습중심형",
+  h: "벼락치기형",
+  i: "집중참여형",
+  j: "산만지루형",
+  k: "흥미참여형",
+  l: "무관심형"
+};
 
-  const formData = new FormData(this);
-  const answerCounts = {
-    a: 0, b: 0, c: 0, d: 0,
-    e: 0, f: 0, g: 0, h: 0,
-    i: 0, j: 0, k: 0, l: 0
-  };
+document.getElementById("quizForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-  const bonusCounts = {
-    c: 0, e: 0, b: 0
-  };
-
-  for (let [key, value] of formData.entries()) {
-    if (value in answerCounts) {
-      answerCounts[value]++;
-    } else if (["-c", "-e", "-b"].includes(value)) {
-      bonusCounts[value[1]]++;
-    }
+  const scores = {};
+  for (const t in typeNames) {
+    scores[t] = 0;
   }
 
-  // 각 파트에서 가장 많이 선택된 항목 고르기
-  function getMaxLetter(range) {
-    let maxLetter = null;
-    let maxCount = -1;
-    for (let letter of range) {
-      if (answerCounts[letter] > maxCount) {
-        maxCount = answerCounts[letter];
-        maxLetter = letter;
-      }
+  // 기본 질문 카운트
+  const radios = document.querySelectorAll('input[type="radio"]:checked');
+  radios.forEach(radio => {
+    const val = radio.value;
+    if (val.length === 1 && typeNames[val]) {
+      scores[val]++;
     }
-    return maxLetter;
-  }
+  });
 
-  const studyType = getMaxLetter(["a", "b", "c", "d"]);
-  const testType = getMaxLetter(["e", "f", "g", "h"]);
-  const moodType = getMaxLetter(["i", "j", "k", "l"]);
+  // 보너스 분석
+  const bonus = ["-c", "-e", "-b"];
+  const bonusScores = { "-c": 0, "-e": 0, "-b": 0 };
 
-  let bonusType = "-c"; // default
-  let maxBonus = -1;
-  for (let key in bonusCounts) {
-    if (bonusCounts[key] > maxBonus) {
-      maxBonus = bonusCounts[key];
-      bonusType = `-${key}`;
+  radios.forEach(radio => {
+    if (bonus.includes(radio.value)) {
+      bonusScores[radio.value]++;
     }
-  }
+  });
 
-  const finalType = `${studyType}${testType}${moodType}${bonusType}`;
-
-  const typeDescriptions = {
-    a: "행동파 실천형",
-    b: "영상탐색형",
-    c: "암기중심형",
-    d: "자유방임형",
-    e: "계획적 연습형",
-    f: "기출분석형",
-    g: "복습중심형",
-    h: "벼락치기형",
-    i: "집중참여형",
-    j: "산만지루형",
-    k: "흥미참여형",
-    l: "무관심형"
+  const getMaxKey = (group) => {
+    return group.reduce((max, key) => scores[key] > scores[max] ? key : max, group[0]);
   };
 
-  const bonusDescriptions = {
-    "-c": "Chill: 새로운 환경에도 잘 적응하는 편이에요.",
-    "-e": "Explorer: 다양한 공부 환경을 탐색하고 싶어해요.",
-    "-b": "Bored: 현재 공부 환경이 지루하다고 느낄 수 있어요."
-  };
+  const main1 = getMaxKey(["a", "b", "c", "d"]);
+  const main2 = getMaxKey(["e", "f", "g", "h"]);
+  const main3 = getMaxKey(["i", "j", "k", "l"]);
 
-  const resultText = `당신의 공부유형은 🎯 ${finalType}형입니다!`;
-  const detailText = `당신은 ${typeDescriptions[studyType]}, ${typeDescriptions[testType]}, ${typeDescriptions[moodType]} 유형이에요.\n\n${bonusDescriptions[bonusType]}`;
+  const bonusType = Object.keys(bonusScores).reduce((max, key) => bonusScores[key] > bonusScores[max] ? key : max, "-c");
 
-  document.getElementById("result").textContent = resultText;
-  document.getElementById("description").textContent = detailText;
+  const fullType = `${main1}${main2}${main3}${bonusType}`;
+
+  const resultText = `당신의 공부유형은 🎯 <strong>${fullType}</strong>형입니다!`;
+
+  const desc = [
+    typeNames[main1],
+    typeNames[main2],
+    typeNames[main3]
+  ].join(", ");
+
+  document.getElementById("result").innerHTML = resultText;
+  document.getElementById("description").innerText = `당신은 ${desc} 입니다.`;
 });
+
